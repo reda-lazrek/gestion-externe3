@@ -1,0 +1,161 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carte grise</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Bootstrap Link -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- Bootstrap Link -->
+
+
+    <!-- Font Awesome Cdn -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <!-- Font Awesome Cdn -->
+
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+    <!-- Google Fonts -->
+</head>
+<body>
+
+
+<!-- Navbar Start -->
+<nav class="navbar navbar-expand-lg" id="navbar">
+    <div class="container" th:include="header :: header"></div>
+</nav>
+<!-- Navbar End -->
+
+
+<!-- Section Book Start -->
+<section class="book" id="book">
+    <div class="container">
+
+        <div class="main-text">
+            <h1><span>E</span>ffectuer <span>U</span>ne <span>D</span>emande</h1>
+        </div>
+
+        <div class="row">
+
+            <div class="col-md-6 py-3 py-md-0">
+
+                <h3><span>Information Citoyen</span></h3>
+
+                <div class="card">
+                    <img src="/images/info.jpeg" alt="">
+                </div>
+            </div>
+
+            <div class="col-md-6 py-3 py-md-0">
+                <form th:action="@{/effectuer}" th:object="${demande}" method="post">
+
+                        <br>
+                        <input th:field="${demande.citoyen.cin}" type="text" class="form-control" placeholder="CIN" ><br>
+                        <input th:field="${demande.citoyen.nom}" type="text" class="form-control" placeholder="Nom" ><br>
+                        <input th:field="${demande.citoyen.prenom}" type="text" class="form-control" placeholder="Prénom" ><br>
+                        <div class="mydict">
+                            <div>
+                                <label>
+                                    <input th:field="${demande.citoyen.sexe}" type="radio"  checked="" value="F">
+                                    <span>Femme</span>
+                                </label>
+                                <label>
+                                    <input th:field="${demande.citoyen.sexe}" type="radio"  value="H">
+                                    <span>Homme</span>
+                                </label>
+
+                            </div>
+                        </div>
+                        <br>
+                        <label for="DN">Date de naissance : </label>
+                        <input th:field="${demande.citoyen.date_naissance}" type="date" class="form-control" id="DN" placeholder="date naiss" >
+                        <br>
+                        <label>Lieu de naissance : </label>
+                        <div class="form-floating">
+                            <select th:field="${demande.citoyen.lieu_naissance}"  class="form-control" aria-label="Floating label select Lieu Naissance">
+                                <option disabled value="" selected>Choisissez votre lieu de naissance:</option>
+                                <option value="fes">Fes</option>
+                                <option value="meknes">Meknes</option>
+                                <option value="rabat">Rabat</option>
+                                <option value="casablanca">Casablanca</option>
+
+                            </select>
+                            <label for="floatingSelect">Lieu</label>
+                        </div>
+                        <br>
+                        <textarea th:field="${demande.citoyen.adresse}" class="form-control" rows="5" placeholder="Adresse"></textarea>
+                        <br>
+                        <input th:field="${demande.citoyen.telephone}" type="text" class="form-control" placeholder="Téléphone" ><br>
+                        <input th:field="${demande.citoyen.nationalite}" type="text" class="form-control" placeholder="Nationalité" ><br>
+                        <input th:field="${demande.citoyen.profession}" type="text" class="form-control" placeholder="Profession" ><br>
+                        <input th:field="${demande.citoyen.email}" type="email" class="form-control" placeholder="Email" ><br>
+
+                    <div class="form-floating">
+                            <select th:field="${demande.type}" class=" form-control"  id="floatingSelect" aria-label="Floating label select type demande">
+                                <option value="" disabled selected>Choisissez un type</option>
+                                <option value="Echange">Echange de ma carte grise</option>
+                                <option value="Duplicata">Duplicata de ma carte grise</option>
+                                <option value="Demande">Demande de ma carte grise</option>
+                            </select>
+                            <label for="floatingSelect">Type demande</label>
+                        </div>
+                            <br><br>
+                            <label for="DD">Date de demande : </label>
+                            <input th:field="${demande.date_demande}" type="date" class="form-control" id="DD" placeholder="date naiss"  readonly  ><br>
+
+                            <br>
+                    <input type="submit" value="Envoyer" class="inpdddut" required> <br>
+                </form>
+                <form th:action="@{/send_files}" method="post" enctype="multipart/form-data">
+                            <label >Importer les documents : </label>
+
+
+                            <label for="arquivo"></label>
+                            <input accept=".jpg, .jpeg, .png, .gif, .pdf" class="inpdddut" name="documents" id="arquivo"
+                                   type="file" multiple>
+                            <input type="submit" value="Envoyer" class="inpdddut mt-4" required> <br>
+                </form>
+
+                </div>
+                <br>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<!-- Footer Start -->
+<footer id="footer">
+    <a class="navbar-brand" th:href="@{/}" id="logo"><span>C</span>arte <span>G</span>rise</a>
+    <p>Dites adieu aux files d'attente interminables et gérez votre carte grise en ligne avec notre application.</p>
+    <div class="social-links">
+        <i class="fa-brands fa-twitter"></i>
+        <i class="fa-brands fa-facebook"></i>
+        <i class="fa-brands fa-instagram"></i>
+        <i class="fa-brands fa-youtube"></i>
+        <i class="fa-brands fa-pinterest-p"></i>
+    </div>
+    <div class="credit">
+        <p>Designed By <a href="#">ABDIKE Kaoutar</a></p>
+    </div>
+    <div class="copyright">
+        <p>&copy;Copyright ABDIKE Kaoutar. All Rights Reserved</p>
+    </div>
+</footer>
+<!-- Footer End -->
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+</body>
+</html>

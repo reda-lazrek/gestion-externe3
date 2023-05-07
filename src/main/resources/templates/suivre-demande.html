@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <!-- Font Awesome Cdn -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <!-- Font Awesome Cdn -->
+
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+    <title>Suivi demande</title>
+    <style>
+      body {
+        background-color: #f9f9f9;
+      }
+
+      .title {
+        display: flex;
+        justify-content: center;
+      }
+      .content {
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        margin-top: 100px;
+      }
+      .left-side,
+      .right-side {
+        width: 30%;
+      }
+      .left-side {
+        font-size: 1.2em;
+      }
+
+      form {
+        border: 1px lightgray solid;
+        padding: 20px;
+      }
+
+      input[type="text"] {
+        padding: 10px;
+        color: black;
+        border: none;
+        outline: none;
+        font-size: 15px;
+        border-radius: 10px;
+        box-shadow: 0px 5px 5px -6px black;
+      }
+      input[type="submit"] {
+        width: 25%;
+        margin-right: 10px;
+        background-color: #ff001e;
+        border: none;
+        color: white;
+      }
+      input[type="submit"]:hover{
+        background-color: #ff001e;
+        width: 27%;
+        color: white;
+      }
+      input[type="submit"]:active{
+        background-color: #ff001e;
+      }
+      input[type="reset"] {
+        width: 25%;
+        margin-left: 10px;
+        background-color: #000;
+        color: white;
+        border: none;
+      }
+
+      input[type="reset"]:hover {
+        width: 26%;
+        background-color: #000;
+        color: white;
+
+      }
+      .btn-group {
+        display: flex;
+      }
+      .left-side {
+        text-align: justify;
+      }
+    </style>
+  </head>
+  <body>
+    
+    <!-- Navbar Start -->
+	   <nav class="navbar navbar-expand-lg" id="navbar" >
+	  	<div class="container" th:include="header :: header"></div>
+	  </nav>
+    <!-- Navbar End -->
+
+    <div class="main-text mt-4">
+      <h1><span>S</span>uivre <span>C</span>arte <span>G</span>rise</h1>
+    </div>
+    <div class="content">
+      <div class="left-side">
+        Entrez le code que vous avez recu par mail lorsque vous avez effectué
+        votre demande. Vous pouvez voir le type, l'etat de votre demande et
+        ainsi de suite...
+      </div>
+      <div class="right-side">
+        <span style="font-size: small">Entrer le code de la demande:</span>
+        <form action="#" method="post">
+          <div class="form-group">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Code..."
+              style="width: 100%"
+              required
+            />
+          </div>
+          <div class="btn-group mt-3">
+            <input type="submit" class="btn" value="Valider" />
+            <input type="reset" class="btn" value="Reset" />
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        main {
+            width: 30%;
+        }
+        main p {
+            text-align: center;
+        }
+        main h1 {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<main class="px-3">
+    <h1 class="text-success">Code envoyé avec Succes</h1>
+    <p class="lead">
+        Nous avons envoyé par mail le code du suivie de votre demande (Si vous
+        trouverez pas le message, vérifiez votre spam)
+    </p>
+    <p class="lead">
+        <a th:href="@{/}" class="btn btn-danger text-white"
+        >Retour vers la Page D'acceuil</a
+        >
+    </p>
+</main>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<div class="container" th:fragment="header">
+  <a class="navbar-brand" th:href="@{/}" id="logo"
+  ><span>C</span>arte <span>G</span>rise</a>
+
+  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+    <span><i class="fa-solid fa-bars"></i></span>
+  </button>
+  <div class="collapse navbar-collapse" id="mynavbar">
+    <ul class="navbar-nav me-auto">
+      <li class="nav-item">
+        <a class="nav-link active" th:href="@{/}">Accueil</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#book">Demande</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{/#services}">Services</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{/#about}">About us</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{/#footer}">Contactez-Nous</a>
+      </li>
+
+    </ul>
+
+  </div>
+</div>

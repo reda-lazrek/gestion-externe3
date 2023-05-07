@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <!-- Font Awesome Cdn -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <!-- Font Awesome Cdn -->
+
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+
+    <title>Home Page</title>
+    <style>
+
+      body{
+        background-color: #f9f9f9;
+      }
+
+      .btn {
+        padding: 15px;
+        font-weight: 700;
+        font-size: 2rem;
+        text-decoration: none;
+        text-align: center;
+        transition: all 0.5s ease;
+      }
+
+      .btn--effectuer {
+        margin: 80px auto;
+        display: block;
+        width: 50%;
+        padding: 1rem;
+        border-radius: 1.5rem;
+        background-color: #fff;
+        color: #000;
+        transition: all 0.5s ease 0s;
+        box-shadow: 0 10px #000;
+      }
+      .btn--suivre {
+        margin: 80px auto;
+        display: block;
+        width: 50%;
+        padding: 1rem;
+        border-radius: 1.5rem;
+        background-color: #fff;
+        color: #ff001e;
+        transition: all 0.5s ease 0s;
+        box-shadow: 0 10px #ff001e;
+      }
+
+      .btn--effectuer span,
+      .btn--suivre span {
+        display: inline-block;
+        position: relative;
+        transition: all 0.5s ease;
+      }
+
+      .btn--effectuer:hover span {
+        padding-left: 1.5rem;
+      }
+
+      .btn--suivre:hover span {
+        padding-left: 1.5rem;
+        color: #ff001e;
+      }
+
+      .btn--effectuer:hover span:before {
+        left: 0;
+        opacity: 1;
+      }
+
+      .btn--effectuer:active {
+        box-shadow: 0 5px #000;
+        transform: translateY(5px);
+      }
+
+      .btn--suivre:active {
+        box-shadow: 0 5px #ff001e;
+        transform: translateY(5px);
+    
+      }
+    </style>
+  </head>
+  <body>
+
+  <!-- Navbar Start -->
+  <nav class="navbar navbar-expand-lg" id="navbar" >
+  	<div class="container" th:include="header :: header"></div>
+  </nav>
+  <!-- Navbar End -->
+
+
+  <!--swiper start-->
+
+  <section class="main swiper mySwiper">
+      <div class="wrapper swiper-wrapper">
+          <div class="slide swiper-slide">
+              <img src="/images/img1.jpeg" alt="" class="image" />
+              <div class="image-data">
+
+                  <a href="#book" class="button">Demander maintenant</a>
+              </div>
+          </div>
+          <div class="slide swiper-slide">
+              <img src="/images/img2.jpeg" alt="" class="image" />
+              <div class="image-data">
+
+                  <a href="#book" class="button">Demander maintenant</a>
+              </div>
+          </div>
+          <div class="slide swiper-slide">
+              <img src="/images/img3.jpeg" alt="" class="image" />
+              <div class="image-data">
+
+                  <a href="#book" class="button">Demander maintenant</a>
+              </div>
+          </div>
+
+      </div>
+      <div class="swiper-button-next nav-btn"></div>
+      <div class="swiper-button-prev nav-btn"></div>
+      <div class="swiper-pagination"></div>
+
+  </section>
+  <!--swiper end-->
+    
+<!--    <div>-->
+<!--      <a th:href="@{/effection-demande}" class="btn btn&#45;&#45;effectuer"-->
+<!--        ><span>Effectuer une demande</span></a-->
+<!--      >-->
+<!--    </div>-->
+
+<!--    <div>-->
+<!--      <a th:href="@{/suivie-demande}" class="btn btn&#45;&#45;suivre"-->
+<!--        ><span>Suivre la demande</span></a-->
+<!--      >-->
+<!--    </div>-->
+
+  <!-- Section Book Start -->
+  <section class="book" id="book">
+      <div class="container">
+
+          <div class="main-text">
+              <h1><span>D</span>emande</h1>
+          </div>
+          <div>
+              <a th:href="@{/effection-demande}" class="btn btn--effectuer"
+              ><span>Effectuer une demande</span></a
+              >
+          </div>
+
+          <div>
+              <a th:href="@{/suivie-demande}" class="btn btn--suivre"
+              ><span>Suivre la demande</span></a
+              >
+          </div>
+
+      </div>
+  </section>
+  <!-- Section Book End -->
+
+
+
+
+  <!-- Section Packages Start -->
+  <section class="services" id="services">
+      <div class="container">
+
+          <div class="main-txt">
+              <h1><span>S</span>ervices</h1>
+          </div>
+
+          <div class="row" style="margin-top: 30px;">
+
+              <div class="col-md-4 py-3 py-md-0">
+
+                  <div class="card">
+                      <i class="fas fa-id-card"></i>
+                      <div class="card-body">
+                          <h3>Effectuer une demande</h3>
+                          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. A, eaque.</p>
+                      </div>
+                  </div>
+
+              </div>
+              <div class="col-md-4 py-3 py-md-0">
+
+                  <div class="card">
+                      <i class="fas fa-file-alt"></i>
+                      <div class="card-body">
+                          <h3>Vérification des documents</h3>
+                          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. A, eaque.</p>
+                      </div>
+                  </div>
+
+              </div>
+              <div class="col-md-4 py-3 py-md-0">
+
+                  <div class="card">
+                      <i class="fas fa-car"></i>
+                      <div class="card-body">
+                          <h3>Carte grise</h3>
+                          <br>
+                          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. A, eaque.</p>
+                      </div>
+                  </div>
+
+              </div>
+
+
+
+          </div>
+
+
+          <div class="row" style="margin-top: 30px;">
+
+              <div class="col-md-4 py-3 py-md-0">
+
+                  <div class="card">
+                      <i class="fas fa-search"></i>
+                      <div class="card-body">
+                          <h3>Suivre l'etat de la demande</h3>
+                          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. A, eaque.</p>
+                      </div>
+                  </div>
+
+              </div>
+              <div class="col-md-4 py-3 py-md-0">
+
+                  <div class="card">
+                      <i class="fas fa-money-check-alt"></i>
+                      <div class="card-body">
+                          <h3>Paiement sur place</h3>
+                          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. A, eaque.</p>
+                      </div>
+                  </div>
+
+              </div>
+              <div class="col-md-4 py-3 py-md-0">
+
+                  <div class="card">
+                      <i class="fas fa-clock"></i>
+                      <div class="card-body">
+                          <h3>Prise de rendez-vous </h3>
+                          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. A, eaque.</p>
+                      </div>
+                  </div>
+
+              </div>
+
+
+
+          </div>
+
+      </div>
+  </section>
+  <!-- Section Packages End -->
+
+
+
+
+
+
+
+
+
+
+  <!-- About Start -->
+  <section class="about" id="about">
+      <div class="container">
+
+          <div class="main-txt">
+              <h1>About <span>Us</span></h1>
+          </div>
+
+          <div class="row" style="margin-top: 50px;">
+
+              <div class="col-md-6 py-3 py-md-0">
+                  <div class="card">
+                      <img src="/images/about.jpg" height="300px" alt="">
+                  </div>
+              </div>
+
+              <div class="col-md-6 py-3 py-md-0">
+                  <h2>Comment ... travail?</h2>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident perferendis dolorem, numquam earum at nam beatae voluptate natus consectetur facere, saepe cupiditate ut exercitationem deserunt, facilis quam perspiciatis autem iure illo harum minima. Quas, vitae aperiam laudantium alias asperiores nulla rerum, nihil eveniet perferendis sint illum accusamus officiis aliquam nam.</p>
+
+              </div>
+
+          </div>
+
+      </div>
+  </section>
+  <!-- About End -->
+
+
+
+
+
+
+
+
+
+
+  <!-- Footer Start -->
+
+  <footer id="footer">
+      <div class="container">
+          <div class="main-txt">
+              <h1>Contactez-<span>Nous</span></h1>
+          </div>
+      </div>
+      <!-- <h1><span>T</span>ravel</h1> -->
+      <img src="/images/logoneww.png" alt="">
+
+      <p>Laissez-nous vous guider - Profitez de nos conseils d'experts pour découvrir les plus belles régions du Maroc.</p>
+      <div class="social-links">
+          <i class="fa-brands fa-twitter"></i>
+          <i class="fa-brands fa-facebook"></i>
+          <i class="fa-brands fa-instagram"></i>
+          <i class="fa-brands fa-youtube"></i>
+          <i class="fa-brands fa-pinterest-p"></i>
+      </div>
+      <div class="credit">
+          <p>Designed By <a href="#">ABDIKE Kaoutar</a></p>
+      </div>
+      <div class="copyright">
+          <p>&copy;Copyright ABDIKE Kaoutar. All Rights Reserved</p>
+      </div>
+
+  </footer>
+
+  <!-- Footer End -->
+
+  <script>
+      var mySwiper = new Swiper('.mySwiper', {
+          // options de votre swiper
+          autoplay: {
+              delay: 1000, // délai de 3 secondes
+              // pauseOnMouseEnter: true, // swiper s'arrête lorsque l'utilisateur survole les slides avec la souris
+
+          },
+      });
+  </script>
+
+
+  <!-- Swiper JS -->
+  <script src="js/swiper-bundle.min.js"></script>
+
+  <!-- Initialize Swiper -->
+  <script>
+      var mySwiper = new Swiper(".mySwiper", {
+          slidesPerView: 1,
+          loop: true,
+          autoplay: {
+              delay: 3000,
+              /* pauseOnMouseEnter: true,*/
+          },
+          pagination: {
+              el: ".swiper-pagination",
+              clickable: true,
+          },
+          navigation: {
+              nextEl: ".swiper-button-next",
+              prevEl: ".swiper-button-prev",
+          },
+      });
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+  <script src="/js/js.js"></script>
+  </body>
+</html>
