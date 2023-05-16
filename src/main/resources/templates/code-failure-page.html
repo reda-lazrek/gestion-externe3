@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        main {
+            width: 30%;
+        }
+        main p {
+            text-align: center;
+        }
+        main h1 {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<main class="px-3">
+    <h1 class="text-danger">Code n'existe pas !</h1>
+    <p class="lead">
+        Le code que vous saisissez n'est pas valide,veuillez svp vérifiez votre code recu par mail)
+    </p>
+    <p class="lead">
+        <a th:href="@{/suivie-demande}" class="btn btn-danger text-white"
+        >Retour vers la Page Precedente</a
+        >
+    </p>
+</main>
+</body>
+</html>

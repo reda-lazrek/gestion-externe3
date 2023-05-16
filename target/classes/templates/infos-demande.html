@@ -5,6 +5,36 @@
     <title>Infos Demande</title>
 </head>
 <body>
-<h1 class="text-center">Infos Demande</h1>
+<h1 class="text-center">Infos Demande:</h1>
+<ul>
+    <li>Demande Infos:</li>
+    <ul>
+        <li th:text="'Date Demande: ' + ${demande.date_demande}"></li>
+        <li th:text="'Description Etat: ' + ${demande.description_etat}"></li>
+        <li th:text="'Etat Demande: ' + ${demande.etat}"></li>
+        <li th:text="'Type Demande: ' + ${demande.type}"></li>
+    </ul>
+    <li>Citoyen Infos:</li>
+    <ul>
+        <li th:text="'NOM: ' + ${demande.getCitoyen().nom}"></li>
+        <li th:text="'PRENOM: ' + ${demande.getCitoyen().prenom}"></li>
+        <li th:text="'SEXE: ' + ${demande.getCitoyen().sexe}"></li>
+        <li th:text="'DATE NAISSANCE: ' + ${demande.getCitoyen().date_naissance}"></li>
+        <li th:text="'LIEU NAISSANCE: ' + ${demande.getCitoyen().lieu_naissance}"></li>
+        <li th:text="'EMAIL: ' + ${demande.getCitoyen().email}"></li>
+        <li th:text="'TELEPHONE: ' + ${demande.getCitoyen().telephone}"></li>
+        <li th:text="'ADRESSE: ' + ${demande.getCitoyen().adresse}"></li>
+        <li th:text="'NATIONALITE: ' + ${demande.getCitoyen().nationalite}"></li>
+        <li th:text="'PROFESSION: ' + ${demande.getCitoyen().profession}"></li>
+        <li th:text="'CODE: ' + ${demande.getCitoyen().code}"></li>
+    </ul>
+    <li>Documents infos: </li>
+    <ul>
+        <th:block th:each="doc : ${demande.getDocuments()}">
+            <li th:text="'NOM DOCUMENT: ' + ${doc.getNom()}"></li>
+        </th:block>
+        <li ></li>
+    </ul>
+</ul>
 </body>
 </html>

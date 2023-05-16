@@ -11,4 +11,5 @@ public interface DemandeServiceInterface {
      Demande add(Demande demande);
      Demande edit(Demande demande);
      Demande delete(Demande demande);
+     Demande getDemandeByCode(String code);
 }

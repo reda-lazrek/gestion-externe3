@@ -57,11 +57,8 @@ public class MainController {
 		int min = 100000; // Minimum value of range
 		int max = 999999; // Maximum value of range
 		int code = (int)Math.floor(Math.random() * (max - min + 1) + min);
-
 		demande.getCitoyen().setCode(String.valueOf(code));
-
 		demandeService.add(demande);
-
 		maDemande = demande;
 		model.put("demande",maDemande);
 
@@ -72,33 +69,37 @@ public class MainController {
 	public String sendFiles(@RequestParam("documents") MultipartFile[] documents, ModelMap model) throws IOException {
 
 		ArrayList<Document> documentList = new ArrayList<Document>();
-
 		for (MultipartFile document : documents) {
 			String documentName = document.getOriginalFilename();
 			String documentContentType = document.getContentType();
 			String sourceDocumentContent = new String(document.getBytes(), StandardCharsets.UTF_8);
-
 			Document doc = new Document();
-
 			doc.setDocType(documentContentType);
 			doc.setNom(documentName);
 			doc.setContent(sourceDocumentContent);
 			doc.setDemande(maDemande);
-
 			documentList.add(doc);
 		}
 			documentService.saveAllDocumentsList(documentList);
-
 			maDemande.setDocuments(documentList);
-
-
 			emailService.sendEmail(maDemande.getCitoyen().getEmail(),"Code Suivie (carte grise demande)",maDemande.getCitoyen().getCode());
-
 			demandeService.edit(maDemande);
-
 			model.put("demande",maDemande);
 
 			return "email-success-page";
 	}
-	
+
+	@GetMapping("/getdemandeinfos")
+	public String suivreDemande(@RequestParam("code") String code,ModelMap model){
+        Demande demande = null;
+        demande = demandeService.getDemandeByCode(code);
+		if (demande == null){
+			return "code-failure-page";
+		}else{
+			model.put("demande",demande);
+			return "infos-demande";
+		}
+
+	}
+
 }

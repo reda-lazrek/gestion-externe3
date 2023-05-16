@@ -109,13 +109,14 @@
       </div>
       <div class="right-side">
         <span style="font-size: small">Entrer le code de la demande:</span>
-        <form action="#" method="post">
+        <form th:action="@{/getdemandeinfos}" method="get">
           <div class="form-group">
             <input
               type="text"
               class="form-control"
               placeholder="Code..."
               style="width: 100%"
+              name="code"
               required
             />
           </div>

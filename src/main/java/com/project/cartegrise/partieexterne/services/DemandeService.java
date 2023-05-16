@@ -52,4 +52,9 @@ public class DemandeService implements DemandeServiceInterface{
     public Demande delete(Demande demande) {
         return null;
     }
+
+    @Override
+    public Demande getDemandeByCode(String code) {
+        return demandeRepository.getDemandeByCode(code);
+    }
 }
